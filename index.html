@@ -16,58 +16,62 @@
         }
      
       .profile {
-        width: 100px;
-        height: 100px;
-
-        border-radius: 100%;
-
-        border : 2px solid white;
-
-        background-image: url('ab.jpg');
-        background-position: center;
-        background-size: cover;
+            width: 100px;
+            height: 100px; 
+            border-radius: 100%;
+            border: 2px solid white;
+            background-image: url('ab.jpg');
+            background-position: center;
+            background-size: cover;
         }
+	 
         .wrap {
-        width: 350px;
-        margin: 30px auto 0px auto;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+              width: 1750px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .wrap > a {
+        .wrap > div {
+            width: 20%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+         .wrap > div > a {
             font-size: 14px;
             font-weight: bold;
             color: #44398A;
-
             background-color: white;
             border-radius: 8px;
-
             box-shadow: 3px 3px 5px 0px black;
-
-            width: 300px;
+            width: 100%;
             height: 50px;
-
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-
             margin-bottom: 10px;
             text-decoration: none;
         }
-        .wrap > a:hover {
+        .wrap > div > a:hover {
             background-color: #f2f2f2;
+        }
+        .header {
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
 <body> 
      
+	   <div class="header">
+            <div class="profile"></div>
+            <h1>물고기는 물속에서 자유롭다</h1>
+            <p>바다는 깊죠?</p>
+        </div>
     <div class="wrap">
-        <div class="profile"></div>
-        <h1>물고기는 물속에서 자유롭다</h1>
-        <p>바다는 깊죠?</p>
+      
+        <div>
+		  🔭 일반 사이트
         <a target="_blank" href="https://iamipro.tistory.com/">개발블로그</a>
 	<a target="_blank" href="https://velog.io/@iamipro/">코딩테스트 벨로그</a>
 <a target="_blank" href="https://leetcode.com/">leet</a>
@@ -79,9 +83,9 @@
         <a target="_blank" href="https://www.mk.co.kr/">매일경제</a>        
         <a target="_blank" href="https://www.etnews.com/">전자신문</a>
         <a target="_blank" href="https://www.boannews.com/">보안신문</a>	        
-        <a target="_blank" href="https://www.diffchecker.com/">소스비교</a>	   
-	<a target="_blank" href="https://colab.research.google.com/notebooks/welcome.ipynb">구글Colab</a>
-	    🔭 유용사이트
+		 </div>
+        <div>
+	    🔭 유용사이트(정보)
 <a target="_blank" href="https://www.tiobe.com/tiobe-index/">Tiobe 프로그래밍 언어지수</a>  
 	        <a target="_blank" href="https://roadmap.sh/backend/">백엔드 개발자 로드맵</a>     
   <a target="_blank" href="https://www.aitimes.kr/ ">인공지능신문</a>  
@@ -95,13 +99,28 @@
   <a target="_blank" href="https://auth.ncloud.com/login">네이버 클라우드 플랫폼</a>  
   <a target="_blank" href="https://developers.kakao.com/stats/app">카카오개발자</a>   
   <a target="_blank" href="https://postcode.map.daum.net/guide">카카오우편</a>   
-  <a target="_blank" href="https://account.mongodb.com/account/login">몽고 DB</a>   
+  <a target="_blank" href="https://account.mongodb.com/account/login">몽고 DB</a>  
+    <a target="_blank" href="http://www.gurubee.net/lecture/2377">Oracle DB</a>  
+	  <a target="_blank" href="https://community.programmers.co.kr/lounge/1">프로그래머스 커뮤니티</a>   
+
+  <a target="_blank" href="https://okky.kr/articles/1313138">okky</a> 
+   </div>
+        <div>
+		🔭 실무사이트
   <a target="_blank" href="https://app.diagrams.net/ https://aquerytool.com/ https://go.gliffy.com/">ERD</a>   
   <a target="_blank" href="https://mermaid.live/edit">머메이드</a>   
   <a target="_blank" href="https://ideone.com/ https://cafe.naver.com/javachobostudy">Java Code Play</a>   
   <a target="_blank" href="https://play.kotlinlang.org/">Kotlin Play Ground</a>   
   <a target="_blank" href="https://replit.com/">Build Software Better, replit</a>   
-  <a target="_blank" href="https://idx.dev/#introduction">dev idx</a>    
+  <a target="_blank" href="https://idx.dev/#introduction">dev idx</a>  
+   <a target="_blank" href="https://www.data.go.kr/bbs/dnb/selectDeveloperNetworkListView.do">공공데이터 포털</a>  
+           <a target="_blank" href="https://www.diffchecker.com/">소스비교</a>	   
+	<a target="_blank" href="https://colab.research.google.com/notebooks/welcome.ipynb">구글Colab</a>
+  <a target="_blank" href="https://simpleicons.org/">아이콘</a>   
+
+   </div>
+        <div>
+		🔭 기술블로그
   <a target="_blank" href="https://d2.naver.com/home">네이버 d2</a>  
   <a target="_blank" href="https://tech.kakao.com/blog/">카카오 기술블로그</a>    
   <a target="_blank" href="https://engineering.linecorp.com/ko/blog">라인 기술블로그</a>   
@@ -114,18 +133,19 @@
   <a target="_blank" href="https://ridicorp.com/story-category/tech-blog">리디 테크블로그</a>   
   <a target="_blank" href="https://zuminternet.github.io/">zum 기술블로그</a>    
   <a target="_blank" href="https://blog.barogo.io/">바로고 기술블로그</a>    
-  <a target="_blank" href="http://www.gurubee.net/lecture/2377">Oracle DB</a>  
-  <a target="_blank" href="https://www.data.go.kr/bbs/dnb/selectDeveloperNetworkListView.do">공공데이터 포털</a>  
-  <a target="_blank" href="https://community.programmers.co.kr/lounge/1">프로그래머스 커뮤니티</a>   
-  <a target="_blank" href="https://simpleicons.org/">아이콘</a>   
-  <a target="_blank" href="https://okky.kr/articles/1313138">okky</a>  
+
+ 
+		</div>
+        <div>
  🔭 개인페이지 
 	    <a target="_blank" href="https://myoungsoo7.github.io/mementum/">브라우저 메인화면 데모</a>  
 	    	     <a target="_blank" href="https://myoungsoo7.github.io/web_publish/">네이버퍼블 데모</a>  
 	         <a target="_blank" href="https://myoungsoo7.github.io/bucket2023/">2024년 신년계획</a>  
 	    <a target="_blank" href="https://myoungsoo7.github.io/mynews/">나의 뉴스</a>  
-   	<a target="_blank" href="https://myoungsoo7.github.io/-memory/">기억</a>  
+   	<a target="_blank" href="https://myoungsoo7.github.io/-memory/">기억</a>  		
 	     <a target="_blank" href="https://myoungsoo7.github.io/chat-gpt-page/">중고마켓</a>   
+
+		</div>
     </div>
  
     
