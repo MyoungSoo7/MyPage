@@ -1,113 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>	  
- <script src="https://s3.ap-northeast-2.amazonaws.com/
-materials.spartacodingclub.kr/free/codingday/news.js"></script>	 
-<link rel="stylesheet"
-    href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free/codingday/news.css">	  
-	  
+            crossorigin="anonymous"></script>
+    <script src="https://s3.ap-northeast-2.amazonaws.com/
+materials.spartacodingclub.kr/free/codingday/news.js"></script>
+    <link rel="stylesheet"
+          href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free/codingday/news.css">
+
     <title>기억</title>
-    <style>     
-      @font-face {
-        font-family: "LeeSeoyun";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
-          format("woff");
-        font-weight: normal;
-        font-style: normal;
-      } 
-    
-      body {
-        font-family: "LeeSeoyun";
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        background-image: url("./background.png");
-      } 
-	    
-      .container {
-        width: 390px;
-        background-color: #ff9d73;
-        height: 100%;
-      }
+    <style>
+        @font-face {
+            font-family: "LeeSeoyun";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+            format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
 
-      .photos {
-        margin-top: 30px;
-      }
+        body {
+            font-family: "LeeSeoyun";
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-image: url("./background.png");
+        }
 
-      .photo-frame {
-        background-color: white;
-        margin: 15px 20px;
-        height: 200px;
-        background-size: cover;
-        position: relative;
-        cursor: pointer; 
-      }
- 
-      
+        .container {
+            width: 390px;
+            background-color: #ff9d73;
+            height: 100%;
+        }
 
-      #image1 {
-        background-image: url("./img1.png");
-      }
+        .photos {
+            margin-top: 30px;
+        }
 
-      #image2 {
-        background-image: url("./img2.png");
-      }
+        .photo-frame {
+            background-color: white;
+            margin: 15px 20px;
+            height: 200px;
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+        }
 
-      #image3 {
-        background-image: url("./img3.png");
-      }
+        #image1 {
+            background-image: url("./img1.png");
+        }
 
-      #image4 {
-        background-image: url("./img4.png");
-      }
+        #image2 {
+            background-image: url("./img2.png");
+        }
 
-      .photo-description {
-        color: white;
-        background-color: black;
-        width: fit-content;
-        padding: 0 20px;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        position: absolute;
-        bottom: 0;
-        transform: translate(-50%);
-        left: 50%;
-       
-        opacity: 0
-      }
+        #image3 {
+            background-image: url("./img3.png");
+        }
 
-			.video {
-        width: 200px;
-        height: 100px;
-      }
+        .photo-description {
+            color: white;
+            background-color: black;
+            width: fit-content;
+            padding: 0 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            transform: translate(-50%);
+            left: 50%;
 
-     
-.showText {
-	opacity: 0;
-} 
- 
- 
-.hideText {
-	opacity: 1;
-  transition: opacity 0.5s linear;
-}
+            opacity: 0
+        }
 
- .time {
+        .time {
             font-size: 80px;
             font-weight: bold;
         }
-
-     
 
         .author {
             font-size: 25px;
@@ -118,7 +94,7 @@ materials.spartacodingclub.kr/free/codingday/news.js"></script>
             width: 100px;
             height: 100px;
             border-radius: 100%;
-            border: 2px solid white; 
+            border: 2px solid white;
         }
         .wrap {
             width: 1750px;
@@ -154,45 +130,45 @@ materials.spartacodingclub.kr/free/codingday/news.js"></script>
             width: 100%;
             text-align: center;
         }
-	 
+
     </style>
     <script>
-  $(document).ready(function () {
+        $(document).ready(function () {
             renderCurrentTime();
             renderQuote();
-   		   
+
         });
-function showText(number) {
-  if (number === 1) {
-    document.querySelector("#desc1").classList.remove("hideText");
-    document.querySelector("#desc1").classList.add("showText");
-  } else if (number === 2) {
-    document.querySelector("#desc2").classList.remove("hideText");
-    document.querySelector("#desc2").classList.add("showText");
-  } else {
-    document.querySelector("#desc3").classList.remove("hideText");
-    document.querySelector("#desc3").classList.add("showText");
-  }
-}
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            } else {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }
+        }
 
- 
-function hideText(number) {
-  if (number === 1) {
-    document.querySelector("#desc1").classList.remove("showText");
-    document.querySelector("#desc1").classList.add("hideText");
-  } else if (number === 2) {
-    document.querySelector("#desc2").classList.remove("showText");
-    document.querySelector("#desc2").classList.add("hideText");
-  } else {
-    document.querySelector("#desc3").classList.remove("showText");
-    document.querySelector("#desc3").classList.add("hideText");
-  }
-}
 
-function alertText(number) {
-	alert(`${number}번째 ai그림!)`);
-}
-	 
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            } else {
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            }
+        }
+
+        function alertText(number) {
+            alert(`${number}번째 ai그림!)`);
+        }
+
         function renderCurrentTime() {
             let url = `https://worldtimeapi.org/api/timezone/Asia/Seoul`;
             fetch(url)
@@ -202,7 +178,7 @@ function alertText(number) {
             });
         }
 
-		 
+
         function renderQuote() {
             let url = `https://api.quotable.io/random`;
             fetch(url)
@@ -213,45 +189,50 @@ function alertText(number) {
                 $('#author').text(author);
             });
         }
-		 
-		function renderRandomImage() {
-		  let imageList = [];		 
-		  for (i = 0; i < 5; i++) {
-			imageList.push(i);
-		  }
-		  let imageListLength = imageList.length;
-		  let randomImage = Math.floor(Math.random() * (imageListLength))+1
-		  randomImage = `images/${randomImage}.jpg`
-		  $(document.body).css("background-image", `url(${randomImage})`);
-		}
+
+        function renderRandomImage() {
+            let imageList = [];
+            for (i = 0; i < 5; i++) {
+                imageList.push(i);
+            }
+            let imageListLength = imageList.length;
+            let randomImage = Math.floor(Math.random() * (imageListLength))+1
+            randomImage = `images/${randomImage}.jpg`
+            $(document.body).css("background-image", `url(${randomImage})`);
+        }
     </script>
-  </head>
-  <body>
-    <div class="header">
-        <div class="profile"></div>
-        <h1>물고기는 물속에서 자유롭다</h1>
-        <p>바다는 깊죠?</p>
-   
+</head>
+<body>
+<div class="header">
+    <div class="profile">   <div class="photo-frame">
+        <iframe
+                src="https://www.youtube.com/embed/KWX8lzzzrzA"
+                frameborder="0"
+        ></iframe>
+    </div></div>
+    <h1 style="color: white">물고기는 물속에서 자유롭다</h1>
+    <p style="color: white">바다는 깊죠?</p>
+
     <div class="wrap">
         <div>
-            🔭 관심 사이트                
+            <p style="color: white">🔭 관심 사이트</p>
             <a target="_blank" href="https://itwiki.kr/">IT위키</a>
             <a target="_blank" href="https://leetcode.com/">leet</a>
             <a target="_blank" href="https://programmers.co.kr/">프로그래머스</a>
             <a target="_blank" href="https://www.acmicpc.net/">백준코딩테스트</a>
-            <a target="_blank" href="https://codeup.kr/">코드업</a>                
+            <a target="_blank" href="https://codeup.kr/">코드업</a>
             <a target="_blank" href="https://www.mk.co.kr/">매일경제</a>
             <a target="_blank" href="https://www.etnews.com/">전자신문</a>
-            <a target="_blank" href="https://www.aitimes.kr/ ">인공지능신문</a>        
-            <a target="_blank" href="https://www.boannews.com/">보안신문</a>        
+            <a target="_blank" href="https://www.aitimes.kr/ ">인공지능신문</a>
+            <a target="_blank" href="https://www.boannews.com/">보안신문</a>
             <a target="_blank" href="https://okky.kr/articles/1313138">okky</a>
-            <a target="_blank" href="https://myoungsoo-ai1.streamlit.app/">chatgpt demo</a>       
-            <a target="_blank" href="https://myoungsoo7.github.io/-memory/">기억</a>    
+            <a target="_blank" href="https://myoungsoo-ai1.streamlit.app/">chatgpt demo</a>
+            <a target="_blank" href="https://myoungsoo7.github.io/-memory/">기억</a>
         </div>
         <div>
-            🔭 유용사이트 
+            <p style="color: white">🔭 유용사이트</p>
             <a target="_blank" href="https://www.tiobe.com/tiobe-index/">Tiobe 프로그래밍 언어지수</a>
-            <a target="_blank" href="https://roadmap.sh/backend/">백엔드 개발자 로드맵</a>   
+            <a target="_blank" href="https://roadmap.sh/backend/">백엔드 개발자 로드맵</a>
             <a target="_blank" href="https://www.wanted.co.kr/salary">평균연봉</a>
             <a target="_blank" href="https://blog.greetinghr.com/for-hr-salary-example/">연령, 산업, 직군, 연차별 평균연봉 정리</a>
             <a target="_blank" href="https://www.wage.go.kr/whome/index.do">임금직무 정보 시스템</a>
@@ -260,25 +241,25 @@ function alertText(number) {
             <a target="_blank" href="https://auth.ncloud.com/login">네이버 클라우드 플랫폼</a>
             <a target="_blank" href="https://developers.kakao.com/stats/app">카카오개발자</a>
             <a target="_blank" href="https://postcode.map.daum.net/guide">카카오우편</a>
-            <a target="_blank" href="https://account.mongodb.com/account/login">몽고 DB</a>       
+            <a target="_blank" href="https://account.mongodb.com/account/login">몽고 DB</a>
         </div>
         <div>
-            🔭 보조사이트
+            <p style="color: white">🔭 보조사이트</p>
             <a target="_blank" href="https://www.data.go.kr/bbs/dnb/selectDeveloperNetworkListView.do">공공데이터 포털</a>
-            <a target="_blank" href="https://ideone.com/">Java Code Play</a>  
+            <a target="_blank" href="https://ideone.com/">Java Code Play</a>
             <a target="_blank" href="https://play.kotlinlang.org/">Kotlin Play Ground</a>
             <a target="_blank" href="https://replit.com/">Build Software Better, replit</a>
             <a target="_blank" href="https://colab.research.google.com/notebooks/welcome.ipynb">구글Colab</a>
             <a target="_blank" href="https://app.diagrams.net/ https://aquerytool.com/ https://go.gliffy.com/">ERD</a>
             <a target="_blank" href="http://www.gurubee.net/lecture/2377">Oracle DB</a>
             <a target="_blank" href="https://simpleicons.org/">아이콘</a>
-            <a target="_blank" href="https://mermaid.live/edit">머메이드</a>        
-            <a target="_blank" href="https://idx.dev/#introduction">dev idx</a>        
+            <a target="_blank" href="https://mermaid.live/edit">머메이드</a>
+            <a target="_blank" href="https://idx.dev/#introduction">dev idx</a>
             <a target="_blank" href="https://www.diffchecker.com/">소스비교</a>
-            <a target="_blank" href="https://iamipro.imweb.me/">imweb demo</a> 
+            <a target="_blank" href="https://iamipro.imweb.me/">imweb demo</a>
         </div>
         <div>
-            🔭 기술블로그
+            <p style="color: white">🔭 기술블로그</p>
             <a target="_blank" href="https://d2.naver.com/home">네이버 d2</a>
             <a target="_blank" href="https://tech.kakao.com/blog/">카카오 기술블로그</a>
             <a target="_blank" href="https://engineering.linecorp.com/ko/blog">라인 기술블로그</a>
@@ -286,55 +267,46 @@ function alertText(number) {
             <a target="_blank" href="https://techblog.woowahan.com/">우아한형제들 기술블로그</a>
             <a target="_blank" href="https://medium.com/daangn">당근마켓 기술블로그</a>
             <a target="_blank" href="https://toss.tech/tech">토스 기술블로그</a>
-            <a target="_blank" href="https://blog.banksalad.com/tech/building-brand-new-home-3/">뱅크샐러드 기술블로그</a>        
-            <a target="_blank" href="https://blog.dramancompany.com/">리멤버 기술블로그</a>     
+            <a target="_blank" href="https://blog.banksalad.com/tech/building-brand-new-home-3/">뱅크샐러드 기술블로그</a>
+            <a target="_blank" href="https://blog.dramancompany.com/">리멤버 기술블로그</a>
             <a target="_blank" href="https://ridicorp.com/story-category/tech-blog">리디 기술블로그</a>
-            <a target="_blank" href="https://zuminternet.github.io/">zum 기술블로그</a> 
-            <a target="_blank" href="https://blog.barogo.io/">바로고 기술블로그</a>        
+            <a target="_blank" href="https://zuminternet.github.io/">zum 기술블로그</a>
+            <a target="_blank" href="https://blog.barogo.io/">바로고 기술블로그</a>
         </div>
-       
+
     </div>
 
     <div class="container">
-	    <div class="time" id="time">12:25</div> 
-	    <div id="author"  class="author"> </div>
-	    <div id="content" class="content"> </div>
-	    <div class="photos">
-		    <div
-		        id="image1"
-		        class="photo-frame"
-		        onmouseover="hideText(1)"
-		        onmouseout="showText(1)"
-		        onclick="alertText(1)"
-		    ><span id="desc1" class="photo-description">첫 번째 이미지</span>
-		    </div>
-		    <div
-		        id="image2" class="photo-frame"
-		        onmouseover="hideText(2)"
-		        onmouseout="showText(2)"
-		        onclick="alertText(2)"
-		    ><span id="desc2" class="photo-description">두 번째 이미지</span>
-		    </div>
-		    <div
-		        id="image3"
-		        class="photo-frame"
-		        onmouseover="hideText(3)"
-		        onmouseout="showText(3)"
-		        onclick="alertText(3)"
-		    ><span id="desc3" class="photo-description">세 번째 이미지</span>
-		    </div>
-		    <div class="photo-frame">
-		          <iframe
-		            src="https://www.youtube.com/embed/KWX8lzzzrzA"
-		            frameborder="0"
-		          ></iframe>			
-		    </div>
-     	     </div><!-- photos    <div class="photo-frame">
-		          <video src="./play.mp4"
-		            controls loop muted autoplay></video> 
-	      </div>-->
-	    
-     <div> <!-- container -->
-     </div> <!-- header -->    
-  </body>
+        <div class="time" id="time">12:25</div>
+        <div id="author"  class="author"> </div>
+        <div id="content" class="content"> </div>
+        <div class="photos">
+            <div
+                    id="image1"
+                    class="photo-frame"
+                    onmouseover="hideText(1)"
+                    onmouseout="showText(1)"
+                    onclick="alertText(1)"
+            ><span id="desc1" class="photo-description">첫 번째 이미지</span>
+            </div>
+            <div
+                    id="image2" class="photo-frame"
+                    onmouseover="hideText(2)"
+                    onmouseout="showText(2)"
+                    onclick="alertText(2)"
+            ><span id="desc2" class="photo-description">두 번째 이미지</span>
+            </div>
+            <div
+                    id="image3"
+                    class="photo-frame"
+                    onmouseover="hideText(3)"
+                    onmouseout="showText(3)"
+                    onclick="alertText(3)"
+            ><span id="desc3" class="photo-description">세 번째 이미지</span>
+            </div>
+        </div>
+
+    <div> <!-- container -->
+    </div> <!-- header -->
+</body>
 </html>
